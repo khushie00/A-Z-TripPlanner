@@ -22,3 +22,14 @@ class TripSerializer(serializers.ModelSerializer):
     class Meta:
         model = Trip
         fields = '__all__'
+
+from accomodations.serializers import AccommodationSerializer
+
+class TripSerializer(serializers.ModelSerializer):
+    user = serializers.HiddenField(default=serializers.CurrentUserDefault())
+    itineraries = ItinerarySerializer(many=True, read_only=True)
+    accommodations = AccommodationSerializer(many=True, read_only=True)
+
+    class Meta:
+        model = Trip
+        fields = '__all__'
