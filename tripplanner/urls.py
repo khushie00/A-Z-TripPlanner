@@ -23,6 +23,7 @@ urlpatterns = [
     path('api/users/', include('users.urls')),
     path('api/destinations/', include('destinations.urls')),
     path('api/trips/', include('trips.urls')),
+    path('api/accommodations/', include('accomodations.urls')),
 
 
 ]
